@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countries</title>
+</head>
+<body>
+  <div class="root">
+    <img id="img" src="" alt="">
+  </div>
+  <script>
+    const myUrl ="https://www.chromoai.tech/myapis/countries/main.json";
+    fetch(myUrl).then(response => response.json()).then(data => {
+      var image = document.querySelector("#img");
+      var countries = data;
+      var country = countries[5];
+      var flag = "https://www.chromoai.tech/myapis/countries" + country.url;
+      image.src = flag;
+    }).catch(error => console.log(error));
+
+  </script>
+</body>
+</html>
